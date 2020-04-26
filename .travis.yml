@@ -6,5 +6,5 @@ sudo: false
 
 group: travis_latest
 
-## Clean, verify, compile and run tests
-script: "mvn clean && mvn verify && mvn compile && mvn test"
+## Clean, validate, compile and run tests
+script: "mvn clean && mvn validate && mvn compile && mvn test"
