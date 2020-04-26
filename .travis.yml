@@ -1,0 +1,8 @@
+language: java
+jdk: oraclejdk8
+
+sudo: false
+
+group: travis_latest
+
+script: ./mvnw clean compile
