@@ -65,7 +65,7 @@ public final class ItemInfoDTO {
     public boolean equals(Object obj)
     {
         boolean result;
-        if((obj == null) || (this.getClass() != obj.getClass())){
+        if((obj == null) || !(obj instanceof ItemInfoDTO)){
             result = false;
         }
         else {
