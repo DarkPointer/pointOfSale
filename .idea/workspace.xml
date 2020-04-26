@@ -29,8 +29,8 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
   </component>
@@ -42,6 +42,13 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SimonAlter\IdeaProjects\pointofsale\src\test\java" />
+      <recent name="C:\Users\SimonAlter\IdeaProjects\pointofsale\src\test\se\kth\iv1350" />
+      <recent name="C:\Users\SimonAlter\IdeaProjects\pointofsale\src\test\se\kth" />
+      <recent name="C:\Users\SimonAlter\IdeaProjects\pointofsale\src\test\se" />
+      <recent name="C:\Users\SimonAlter\IdeaProjects\pointofsale\src\test" />
     </key>
   </component>
   <component name="RunAnythingCache">
