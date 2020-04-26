@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pointofsale:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pointofsale_jar</output-path>
+    <root id="archive" name="pointofsale.jar">
+      <element id="module-output" name="pointofsale" />
+    </root>
+  </artifact>
+</component>
