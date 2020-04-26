@@ -7,4 +7,7 @@ sudo: false
 group: travis_latest
 
 ## Clean, verify, compile and run tests
-script: "mvn clean && mvn verify && mvn compile && mvn test"
+script: "mvn clean && mvn verify && mvn compile && mvn test && mvn cobertura:cobertura"
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
