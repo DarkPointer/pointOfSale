@@ -1,13 +1,10 @@
 language: java
+
+# We can specify a list of JDKs to be used for testing
+# A list of available JDKs in Trusty can be seed in:
+# https://docs.travis-ci.com/user/reference/xenial/#jvm-clojure-groovy-java-scala-support
 jdk:
-  - oraclejdk8
-  - oraclejdk9
-  - oraclejdk13
-  - openjdk8
-  - openjdk-ea
-  
-sudo: false
-
-group: travis_latest
-
-script: ./mvnw clean compile
+ - openjdk8
+ - openjdk11
+ 
+sudo:false
