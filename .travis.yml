@@ -5,3 +5,6 @@ jdk:
 sudo: false
 
 group: travis_latest
+
+## Run Integration tests
+script: "mvn test && mvn verify"
