@@ -36,12 +36,15 @@
 
     <dependencies>
 		<dependency>
-			<groupId>com.sun</groupId>
-			<artifactId>tools</artifactId>
-			<version>1.6.0</version>
-			<scope>system</scope>
-			<systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
-		</dependency>
+            <groupId>groupId</groupId>
+            <artifactId>compile-testing</artifactId>
+            <exclusions>
+               <exclusion>
+                  <groupId>com.sun</groupId>
+                  <artifactId>tools</artifactId>
+               </exclusion>
+            </exclusions>
+        </dependency>
 
 
         <dependency>
