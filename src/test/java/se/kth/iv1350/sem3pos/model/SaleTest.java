@@ -41,9 +41,11 @@ class SaleTest {
         ItemInfoDTO testItem = inventorySystem.getItemInfo("item1");
         firstSaleInstance.registerItem(testItem,1);
         ItemDTO[] registeredItems = firstSaleInstance.getSaleInfo().getSaleItems();
+        String testItemId = testItem.getId();
         String testItemDescription = testItem.getDescription();
+        String registeredItemId = registeredItems[0].getId();
         String registeredItemDescription = registeredItems[0].getDescription();
-        boolean result = testItemDescription.equals(registeredItemDescription);
+        boolean result = testItemDescription.equals(registeredItemDescription) && testItemId.equals(registeredItemId);
         assertTrue(result, "The registered item does not match the item that was intended to be registered.");
     }
 
@@ -55,7 +57,7 @@ class SaleTest {
         secondSaleInstance.registerItem(secondTestItem,1);
         double totalPriceFirstSale = firstSaleInstance.getTotalPriceInclVAT();
         double totalPriceSecondSale = secondSaleInstance.getTotalPriceInclVAT();
-        assertNotEquals(totalPriceFirstSale, totalPriceSecondSale, "Two different sales with two different items yielded the same total price.");
+        assertNotEquals(totalPriceFirstSale, totalPriceSecondSale, "Two sale instances with two different items having different prices yielded the same total price.");
     }
 
     @Test
@@ -82,7 +84,7 @@ class SaleTest {
         Date firstSaleDate = firstSaleInstance.getSaleInfo().getSaleDate();
         Date secondSaleDate = secondSaleInstance.getSaleInfo().getSaleDate();
         boolean result = (secondSaleDate.getTime() - firstSaleDate.getTime()) > 20;
-        assertTrue(result, "Two different sales resulted in the same sale date.");
+        assertTrue(result, "Two different sales started at different times resulted in the same sale start date.");
     }
 
 }

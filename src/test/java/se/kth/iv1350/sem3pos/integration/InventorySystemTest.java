@@ -26,7 +26,7 @@ class InventorySystemTest {
         ItemInfoDTO firstItem = inventorySystemInstance.getItemInfo("item1");
         ItemInfoDTO secondItem = inventorySystemInstance.getItemInfo("item1");
         boolean result = firstItem.equals(secondItem);
-        assertTrue(result, "Fetching two identical items resulted in two items with different attributes.");
+        assertTrue(result, "Fetching two identical items resulted in two items with different information.");
 
     }
 
