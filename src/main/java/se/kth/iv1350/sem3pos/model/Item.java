@@ -7,22 +7,21 @@ import se.kth.iv1350.sem3pos.integration.ItemInfoDTO;
  * Item class containing complete information about a specific item added to a sale.
  */
 public class Item {
-
-    private String id;
-    private String description;
+    private String itemId;
+    private String itemDescription;
     private float vatRate;
     private double priceExclVAT;
     private double priceInclVAT;
     private int quantity;
 
     /**
-     * Creates a new instance of {@link Item}
+     * Creates a new instance of {@link Item}.
      * @param itemInfo {@link ItemInfoDTO} containing basic information about the item.
      * @param priceInclVAT The calculated price of the item including VAT.
      */
     Item(ItemInfoDTO itemInfo, double priceInclVAT) {
-        this.id = itemInfo.getId();
-        this.description = itemInfo.getDescription();
+        this.itemId = itemInfo.getItemId();
+        this.itemDescription = itemInfo.getItemDescription();
         this.vatRate = itemInfo.getVatRate();
         this.priceExclVAT = itemInfo.getPriceExclVAT();
         this.priceInclVAT = priceInclVAT;
@@ -33,16 +32,16 @@ public class Item {
      * Returns the item identifier.
      * @return The item identifier.
      */
-    String getId() {
-        return id;
+    String getItemId() {
+        return itemId;
     }
 
     /**
      * Returns the item description.
      * @return The item description.
      */
-    String getDescription() {
-        return description;
+    String getItemDescription() {
+        return itemDescription;
     }
 
     /**

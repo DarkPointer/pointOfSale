@@ -5,7 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * The receipt data transfer object which holds essential information about the sale. Instances are immutable.
+ * The receipt data transfer object which holds essential information about the sale.
+ *              Instances are immutable.
  */
 public final class ReceiptDTO {
 
@@ -28,14 +29,13 @@ public final class ReceiptDTO {
      * @param amountPaid The amount paid by the customer.
      * @param change The amount of change returned to the customer.
      */
-    ReceiptDTO(Date saleDate, ItemDTO[] saleItems, double totalPrice, double totalVAT, double amountPaid, double change)
-    {
-        this.storeName= "Humble Store";
+    ReceiptDTO(Date saleDate, ItemDTO[] saleItems, double totalPrice, double totalVAT, double amountPaid, double change) {
+        this.storeName = "Humble Store";
         this.storeAddress = "Humble street 10, Humble City, Humble";
         this.saleDate = saleDate;
         this.saleItems = saleItems;
         this.totalPrice = totalPrice;
-        this.totalVAT= totalVAT;
+        this.totalVAT = totalVAT;
         this.amountPaid = amountPaid;
         this.change = change;
 

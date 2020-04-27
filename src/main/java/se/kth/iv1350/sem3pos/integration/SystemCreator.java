@@ -11,8 +11,7 @@ public class SystemCreator {
     /**
      * Creates a new instance of the {@link SystemCreator}.
      */
-    public SystemCreator()
-    {
+    public SystemCreator() {
         this.accountingSystem = new AccountingSystem();
         this.inventorySystem = new InventorySystem();
     }

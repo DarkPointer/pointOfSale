@@ -1,4 +1,5 @@
 package se.kth.iv1350.sem3pos.model;
+
 import java.util.Date;
 
 /**
@@ -21,8 +22,7 @@ public final class SaleDTO {
      * @param amountPaid The amount of cash paid by the customer.
      * @param change The amount of change returned to the customer.
      */
-    SaleDTO(Date saleDate, ItemDTO[] saleItems, double totalPriceInclVAT, double wholeSaleVAT, double amountPaid, double change)
-    {
+    SaleDTO(Date saleDate, ItemDTO[] saleItems, double totalPriceInclVAT, double wholeSaleVAT, double amountPaid, double change) {
         this.saleDate= saleDate;
         this.totalPriceInclVAT = totalPriceInclVAT;
         this.wholeSaleVAT = wholeSaleVAT;

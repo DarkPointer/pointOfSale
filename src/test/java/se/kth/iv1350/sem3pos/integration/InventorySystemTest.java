@@ -1,10 +1,11 @@
 package se.kth.iv1350.sem3pos.integration;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class InventorySystemTest {
 
@@ -21,8 +22,7 @@ class InventorySystemTest {
     }
 
     @Test
-    void testEqualItems()
-    {
+    void testEqualItems() {
         ItemInfoDTO firstItem = inventorySystemInstance.getItemInfo("item1");
         ItemInfoDTO secondItem = inventorySystemInstance.getItemInfo("item1");
         boolean result = firstItem.equals(secondItem);
@@ -31,12 +31,10 @@ class InventorySystemTest {
     }
 
     @Test
-    void testUnequalItems()
-    {
+    void testUnequalItems() {
         ItemInfoDTO firstItem = inventorySystemInstance.getItemInfo("item1");
         ItemInfoDTO secondItem = inventorySystemInstance.getItemInfo("item4");
         boolean result = firstItem.equals(secondItem);
         assertFalse(result, "Fetching two different items resulted in two items with identical attributes.");
-
     }
 }

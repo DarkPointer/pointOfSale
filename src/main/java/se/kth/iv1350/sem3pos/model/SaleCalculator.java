@@ -10,9 +10,7 @@ public class SaleCalculator {
     /**
      * Creates a new instance of the {@link SaleCalculator}.
      */
-    SaleCalculator()
-    {
-
+    SaleCalculator() {
     }
 
     /**

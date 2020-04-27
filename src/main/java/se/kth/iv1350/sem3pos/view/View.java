@@ -3,7 +3,8 @@ package se.kth.iv1350.sem3pos.view;
 import se.kth.iv1350.sem3pos.controller.Controller;
 
 /**
- * A view class capable of performing hardcoded calls to the controller, simulating a sale process and printing the results out to the console.
+ * A view class capable of performing hardcoded calls to the controller,
+ *              simulating a sale process and printing the results out to the console.
  */
 public class View {
     private Controller controller;
@@ -19,8 +20,7 @@ public class View {
     /**
      * Simulates a sale process and prints out the results to the console.
      */
-    public void simulateSaleProcess()
-    {
+    public void simulateSaleProcess() {
         this.controller.startSale();
 
         System.out.println();
@@ -71,6 +71,5 @@ public class View {
         System.out.println();
 
         System.out.println(changeAmount);
-
     }
 }

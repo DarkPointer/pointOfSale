@@ -1,7 +1,8 @@
 package se.kth.iv1350.sem3pos.model;
 
 /**
- * The cash register responsible on keeping track of the available balance in the register and logging completed sales.
+ * The cash register responsible on keeping track of the available balance in the register
+ *              and logging completed sales.
  */
 public class CashRegister {
     private double currentBalance;
@@ -9,8 +10,7 @@ public class CashRegister {
     /**
      * Creates an instance of the {@link CashRegister}.
      */
-    public CashRegister()
-    {
+    public CashRegister() {
         this.currentBalance = 0;
     }
 
@@ -35,9 +35,7 @@ public class CashRegister {
      * Logs a completed sale.
      * @param saleInfo A sale data transfer object {@link SaleDTO} containing all available information about a sale.
      */
-    public void logCompletedSale(Sale saleInfo)
-    {
-
+    public void logCompletedSale(Sale saleInfo) {
     }
 
 }

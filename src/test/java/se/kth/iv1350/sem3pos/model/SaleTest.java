@@ -1,16 +1,14 @@
 package se.kth.iv1350.sem3pos.model;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Date;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 import se.kth.iv1350.sem3pos.integration.InventorySystem;
 import se.kth.iv1350.sem3pos.integration.ItemInfoDTO;
 import se.kth.iv1350.sem3pos.integration.SystemCreator;
-import java.util.Date;
-
-
 
 class SaleTest {
 
@@ -41,8 +39,8 @@ class SaleTest {
         ItemInfoDTO testItem = inventorySystem.getItemInfo("item1");
         firstSaleInstance.registerItem(testItem,1);
         ItemDTO[] registeredItems = firstSaleInstance.getSaleInfo().getSaleItems();
-        String testItemId = testItem.getId();
-        String testItemDescription = testItem.getDescription();
+        String testItemId = testItem.getItemId();
+        String testItemDescription = testItem.getItemDescription();
         String registeredItemId = registeredItems[0].getId();
         String registeredItemDescription = registeredItems[0].getDescription();
         boolean result = testItemDescription.equals(registeredItemDescription) && testItemId.equals(registeredItemId);

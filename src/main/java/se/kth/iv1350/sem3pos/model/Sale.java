@@ -1,11 +1,10 @@
 package se.kth.iv1350.sem3pos.model;
 
-import se.kth.iv1350.sem3pos.integration.ItemInfoDTO;
-import se.kth.iv1350.sem3pos.integration.Printer;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import se.kth.iv1350.sem3pos.integration.ItemInfoDTO;
+import se.kth.iv1350.sem3pos.integration.Printer;
 
 /**
  * The sale class handles the sale logic and stores sale information.
@@ -30,35 +29,16 @@ public class Sale {
 
     /**
      * Registers an item in the current sale.
-     * @param itemInfo An {@link ItemInfoDTO} containing information about the item.
+     * @param itemToRegister An {@link ItemInfoDTO} containing information about the item.
      * @param quantity The quantity of the item to be registered.
-     * @return The registration information including item description, price, and running total (including VAT).
+     * @return The registration information including item description, price,
+     *              and running total (including VAT).
      */
-    public String registerItem(ItemInfoDTO itemInfo, int quantity) {
-        String newItemId = itemInfo.getId();
-        String newItemDescription = itemInfo.getDescription();
-        double itemPriceInclVAT = this.saleCalculator.calcItemPriceInclVAT(itemInfo);
-        int itemIndex = -1;
-
-        for (int i = 0; i < saleItems.size(); i++) {
-            String currentItemId = saleItems.get(i).getId();
-
-            if (currentItemId.equals(newItemId)) {
-                itemIndex = i;
-            }
-        }
-
-        if (itemIndex != -1) {
-            this.increaseQuantity(itemIndex, quantity);
-        } else {
-            Item newItem;
-
-            newItem = new Item(itemInfo, itemPriceInclVAT);
-            this.addItem(newItem);
-        }
-
+    public String registerItem(ItemInfoDTO itemToRegister, int quantity) {
+        String itemDescription = itemToRegister.getItemDescription();
+        double itemPriceInclVAT = processItemRegistration(itemToRegister, quantity);
         double runningTotalInclVAT = getTotalPriceInclVAT();
-        String result = String.format("ItemDescription: %s, Price: %.2f, RunningTotal(Incl.VAT): %.2f", newItemDescription, itemPriceInclVAT, runningTotalInclVAT);
+        String result = String.format("ItemDescription: %s, Price: %.2f, RunningTotal(Incl.VAT): %.2f", itemDescription, itemPriceInclVAT, runningTotalInclVAT);
 
         return result;
     }
@@ -80,8 +60,7 @@ public class Sale {
      * @param amountPaid Amount of cash paid by the customer.
      * @param change Amount of change returned to the customer.
      */
-    public void updatePaymentDetails(double amountPaid, double change)
-    {
+    public void updatePaymentDetails(double amountPaid, double change) {
         this.amountPaid= amountPaid;
         this.change = change;
     }
@@ -115,8 +94,32 @@ public class Sale {
         return this.totalPriceInclVAT;
     }
 
-    private void addItem(Item item) {
-        this.saleItems.add(item);
+    private double processItemRegistration(ItemInfoDTO itemToRegister, int quantity) {
+        String newItemId = itemToRegister.getItemId();
+        double itemPriceInclVAT = this.saleCalculator.calcItemPriceInclVAT(itemToRegister);
+        int existingItemIndex = -1;
+
+        for (int i = 0; i < saleItems.size(); i++) {
+            String currentItemId = saleItems.get(i).getItemId();
+
+            if (currentItemId.equals(newItemId)) {
+                existingItemIndex = i;
+            }
+        }
+
+        if (existingItemIndex != -1) {
+            this.increaseQuantity(existingItemIndex, quantity);
+        } else {
+            Item newItem;
+            newItem = new Item(itemToRegister, itemPriceInclVAT);
+            this.addItem(newItem);
+        }
+
+        return itemPriceInclVAT;
+    }
+
+    private void addItem(Item itemToAdd) {
+        this.saleItems.add(itemToAdd);
     }
 
     private void increaseQuantity(int itemIndex, int count) {
@@ -129,8 +132,7 @@ public class Sale {
         return receipt;
     }
 
-    private ItemDTO[] buildItemList()
-    {
+    private ItemDTO[] buildItemList() {
         List<ItemDTO> itemList = new ArrayList<ItemDTO>();
 
         for (Item item: this.saleItems) {
@@ -140,6 +142,5 @@ public class Sale {
 
         return itemList.toArray(new ItemDTO[0]);
     }
-
 
 }

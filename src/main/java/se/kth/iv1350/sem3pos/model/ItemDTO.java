@@ -12,12 +12,12 @@ public final class ItemDTO {
     private int quantity;
 
     /**
-     * Creates a new instance of {@link ItemDTO}
+     * Creates a new instance of {@link ItemDTO}.
      * @param itemInfo The {@link Item} to be used to create the DTO.
      */
     ItemDTO(Item itemInfo) {
-        this.id = itemInfo.getId();
-        this.description = itemInfo.getDescription();
+        this.id = itemInfo.getItemId();
+        this.description = itemInfo.getItemDescription();
         this.vatRate = itemInfo.getVatRate();
         this.priceExclVAT = itemInfo.getPriceExclVAT();
         this.priceInclVAT = itemInfo.getPriceInclVAT();
